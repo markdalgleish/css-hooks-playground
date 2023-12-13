@@ -1,41 +1,37 @@
 import type { MetaFunction } from "@remix-run/node";
+import { css } from "~/css-hooks";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "CSS Hooks Playground" },
+    { name: "description", content: "Just playing around with CSS Hooks!" },
   ];
 };
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <>
+      <h1
+        style={css({
+          fontFamily: "sans-serif",
+          ":light": {
+            color: "blue",
+            backgroundColor: "aliceblue",
+            ":hover": { backgroundColor: "aqua" },
+          },
+          ":dark": {
+            color: "white",
+            backgroundColor: "navy",
+            ":hover": { backgroundColor: "blue" },
+          },
+          padding: 10,
+          fontSize: 16,
+          ":640px": { padding: 16, fontSize: 24 },
+          ":1024px": { padding: 24, fontSize: 32 },
+        })}
+      >
+        Hello from Remix and CSS Hooks!
+      </h1>
+    </>
   );
 }

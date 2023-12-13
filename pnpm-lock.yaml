@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@css-hooks/react':
+    specifier: ^1.4.2
+    version: 1.4.2(react@18.2.0)
   '@remix-run/node':
     specifier: 2.4.0-pre.8
     version: 2.4.0-pre.8(typescript@5.3.3)
@@ -41,7 +44,7 @@ devDependencies:
     specifier: ^8.38.0
     version: 8.55.0
   typescript:
-    specifier: ^5.1.6
+    specifier: ^5.3.3
     version: 5.3.3
   vite:
     specifier: ^5.0.0
@@ -469,9 +472,27 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@css-hooks/core@1.4.2:
+    resolution: {integrity: sha512-/pZjZR5qnErqtSoLuCuQheSeVQMgaLNXttOA0dkLJvpraJNrNx6s58NKkgXzzyxoH+Qkan8uZr7xZyotqqg0wA==}
+    dev: false
+
+  /@css-hooks/react@1.4.2(react@18.2.0):
+    resolution: {integrity: sha512-lFaxHaZANcP9IimSNJ/HvthSBnvZGxPkT54sxiHraVZoyHtnrBvA6VQY//iATyYGqc9puNZU7tiidM6RZzcCOQ==}
+    peerDependencies:
+      react: '>=16.14.0 <19'
+    dependencies:
+      '@css-hooks/core': 1.4.2
+      '@emotion/unitless': 0.8.1
+      react: 18.2.0
+    dev: false
+
   /@emotion/hash@0.9.1:
     resolution: {integrity: sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==}
     dev: true
+
+  /@emotion/unitless@0.8.1:
+    resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
+    dev: false
 
   /@esbuild/android-arm64@0.17.6:
     resolution: {integrity: sha512-YnYSCceN/dUzUr5kdtUzB+wZprCafuD89Hs0Aqv9QSdwhYQybhXTaSTcrl6X/aWThn1a/j0eEpUBGOE7269REg==}
