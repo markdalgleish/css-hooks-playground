@@ -32,11 +32,11 @@ app.use(express.static("build/client", { maxAge: "1h" }));
 app.all(
   "*",
   createRequestHandler({
+    // @ts-expect-error
     build:
       viteDevServer && virtualRemixServerBuildId
         ? () => viteDevServer.ssrLoadModule(virtualRemixServerBuildId)
-        : // @ts-expect-error
-          await import("./build/server/index.js"),
+        : await import("./build/server/index.js"),
   })
 );
 
