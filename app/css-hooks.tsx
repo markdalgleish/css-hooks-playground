@@ -2,6 +2,7 @@ import { createHooks } from "@css-hooks/react";
 
 const container = "__container__";
 const containerStyles = `:root,.${container}{container-type:inline-size;container-name:${container}}`;
+const classes = { container };
 
 const [hooks, css] = createHooks(
   {
@@ -16,12 +17,12 @@ const [hooks, css] = createHooks(
   { debug: process.env.NODE_ENV !== "production" }
 );
 
-export { css };
-export const classes = { container };
-export const CssHooks = () => (
+const CssHooks = () => (
   <style
     dangerouslySetInnerHTML={{
       __html: [containerStyles, hooks].join(""),
     }}
   />
 );
+
+export { CssHooks, css, classes };
