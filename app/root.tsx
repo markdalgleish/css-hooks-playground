@@ -6,7 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { hooks } from "~/css-hooks";
+import { CssHooks } from "~/css-hooks";
 
 export default function App() {
   return (
@@ -15,8 +15,8 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <CssHooks />
         <Links />
-        <style dangerouslySetInnerHTML={{ __html: hooks }} />
       </head>
       <body>
         <Outlet />

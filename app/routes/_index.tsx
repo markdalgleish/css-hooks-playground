@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import { css } from "~/css-hooks";
+import { ReactNode } from "react";
+import { css, classes } from "~/css-hooks";
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,30 +9,43 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+const Test = ({ children }: { children: ReactNode }) => (
+  <h1
+    style={css({
+      fontFamily: "sans-serif",
+      ":light": {
+        color: "blue",
+        backgroundColor: "aliceblue",
+        ":hover": { backgroundColor: "aqua" },
+      },
+      ":dark": {
+        color: "white",
+        backgroundColor: "navy",
+        ":hover": { backgroundColor: "blue" },
+      },
+      padding: 10,
+      fontSize: 16,
+      ":container(640px)": { padding: 16, fontSize: 24 },
+      ":container(1024px)": { padding: 24, fontSize: 32 },
+    })}
+  >
+    {children}
+  </h1>
+);
+
 export default function Index() {
   return (
     <>
-      <h1
-        style={css({
-          fontFamily: "sans-serif",
-          ":light": {
-            color: "blue",
-            backgroundColor: "aliceblue",
-            ":hover": { backgroundColor: "aqua" },
-          },
-          ":dark": {
-            color: "white",
-            backgroundColor: "navy",
-            ":hover": { backgroundColor: "blue" },
-          },
-          padding: 10,
-          fontSize: 16,
-          ":640px": { padding: 16, fontSize: 24 },
-          ":1024px": { padding: 24, fontSize: 32 },
-        })}
-      >
-        Hello from Remix and CSS Hooks!
-      </h1>
+      <div className={classes.container} style={{ maxWidth: 480 }}>
+        <Test>Test element in a 480px max-width container</Test>
+      </div>
+      <div className={classes.container} style={{ maxWidth: 768 }}>
+        <Test>Test element in a 768px max-width container</Test>
+      </div>
+      <div className={classes.container} style={{ maxWidth: 1024 }}>
+        <Test>Test element in a 1024px max-width container</Test>
+      </div>
+      <Test>Test element outside of a container</Test>
     </>
   );
 }
