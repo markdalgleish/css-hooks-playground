@@ -45,7 +45,12 @@ export default function Index() {
       <div className={classes.container} style={{ maxWidth: 1024 }}>
         <Test>Test element in a 1024px max-width container</Test>
       </div>
-      <Test>Test element outside of a container</Test>
+      <details>
+        <summary style={{ cursor: "default" }}>Show stress test</summary>
+        {Array.from({ length: 1000 }).map((_, index) => (
+          <Test key={index}>Test element {index + 1} of 1000</Test>
+        ))}
+      </details>
     </>
   );
 }

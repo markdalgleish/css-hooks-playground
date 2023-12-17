@@ -1,6 +1,7 @@
+import express from "express";
+import compression from "compression-next";
 import { createRequestHandler } from "@remix-run/express";
 import { installGlobals } from "@remix-run/node";
-import express from "express";
 
 installGlobals();
 
@@ -16,6 +17,8 @@ const virtualRemixServerBuildId = viteDevServer
   : null;
 
 const app = express();
+
+app.use(compression());
 
 // handle asset requests
 if (viteDevServer) {
