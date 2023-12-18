@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { ReactNode } from "react";
-import { css, classes } from "~/css-hooks";
+import { css, classes, colors } from "~/css-hooks";
 
 export const meta: MetaFunction = () => {
   return [
@@ -14,14 +14,14 @@ const Test = ({ children }: { children: ReactNode }) => (
     style={css({
       fontFamily: "sans-serif",
       ":light": {
-        color: "blue",
-        backgroundColor: "aliceblue",
-        ":hover": { backgroundColor: "aqua" },
+        color: colors.blue10,
+        backgroundColor: colors.blue4,
+        ":hover": { backgroundColor: colors.blue5 },
       },
       ":dark": {
         color: "white",
-        backgroundColor: "navy",
-        ":hover": { backgroundColor: "blue" },
+        backgroundColor: colors.blue10,
+        ":hover": { backgroundColor: colors.blue11 },
       },
       padding: 10,
       fontSize: 16,

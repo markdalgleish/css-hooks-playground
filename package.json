@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@css-hooks/react": "^1.4.2",
+    "@radix-ui/colors": "^3.0.0",
     "@remix-run/express": "^2.4.0",
     "@remix-run/node": "2.4.0",
     "@remix-run/react": "2.4.0",

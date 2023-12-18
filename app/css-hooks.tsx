@@ -1,4 +1,5 @@
 import { createHooks } from "@css-hooks/react";
+import { blue } from "@radix-ui/colors";
 
 const container = "__container__";
 const containerStyles = `:root,.${container}{container-type:inline-size;container-name:${container}}`;
@@ -25,4 +26,8 @@ const CssHooks = () => (
   />
 );
 
-export { CssHooks, css, classes };
+const colors = {
+  ...blue,
+};
+
+export { CssHooks, css, classes, colors };

@@ -8,6 +8,9 @@ dependencies:
   '@css-hooks/react':
     specifier: ^1.4.2
     version: 1.4.2(react@18.2.0)
+  '@radix-ui/colors':
+    specifier: ^3.0.0
+    version: 3.0.0
   '@remix-run/express':
     specifier: ^2.4.0
     version: 2.4.0(express@4.18.2)(typescript@5.3.3)
@@ -1289,6 +1292,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@radix-ui/colors@3.0.0:
+    resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
+    dev: false
 
   /@remix-run/dev@2.4.0(@remix-run/serve@2.4.0)(typescript@5.3.3)(vite@5.0.8):
     resolution: {integrity: sha512-qQsZv+uPw8IhAdUwIIaZqnJfgJXLahYuWHFQIcS7kBhr+PdwW6SA3gvmUhnkDrqV+HJdP1bUpwXYGT+vbDQGiQ==}
