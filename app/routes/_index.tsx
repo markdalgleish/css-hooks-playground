@@ -12,16 +12,19 @@ export const meta: MetaFunction = () => {
 const Test = ({ children }: { children: ReactNode }) => (
   <h1
     style={css({
+      margin: 0,
       fontFamily: "sans-serif",
       ":light": {
         color: colors.blue10,
         backgroundColor: colors.blue4,
         ":hover": { backgroundColor: colors.blue5 },
+        ":group(:hover)": { backgroundColor: colors.blue5 },
       },
       ":dark": {
         color: "white",
         backgroundColor: colors.blue10,
         ":hover": { backgroundColor: colors.blue11 },
+        ":group(:hover)": { backgroundColor: colors.blue11 },
       },
       padding: 10,
       fontSize: 16,
@@ -35,7 +38,7 @@ const Test = ({ children }: { children: ReactNode }) => (
 
 export default function Index() {
   return (
-    <>
+    <div style={css({ display: "flex", flexDirection: "column", gap: 8 })}>
       <div className={classes.container} style={{ maxWidth: 480 }}>
         <Test>Test element in a 480px max-width container</Test>
       </div>
@@ -45,12 +48,22 @@ export default function Index() {
       <div className={classes.container} style={{ maxWidth: 1024 }}>
         <Test>Test element in a 1024px max-width container</Test>
       </div>
+      <div
+        className={classes.group}
+        style={css({ display: "flex", flexDirection: "column", gap: 8 })}
+      >
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Test key={index}>Test element in a group</Test>
+        ))}
+      </div>
       <details>
         <summary style={{ cursor: "default" }}>Show stress test</summary>
-        {Array.from({ length: 1000 }).map((_, index) => (
-          <Test key={index}>Test element {index + 1} of 1000</Test>
-        ))}
+        <div style={css({ display: "flex", flexDirection: "column", gap: 8 })}>
+          {Array.from({ length: 1000 }).map((_, index) => (
+            <Test key={index}>Test element {index + 1} of 1000</Test>
+          ))}
+        </div>
       </details>
-    </>
+    </div>
   );
 }
